@@ -18,50 +18,31 @@ export default function Home() {
     useRef(null), // Bio
   ];
 
-  const prevActiveSection = useRef<number | null>(null);
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
 
-      let currentActiveSection: number | null = null;
-
       sections.forEach((section, index) => {
         if (section.current) {
           const top = section.current.offsetTop;
           const height = section.current.offsetHeight;
-          const middle = top + height / 2; // Calculate the middle of the section
+          const middle = top + height / 2;
 
-          // Define the active range based on the middle position
-          const activeStart = middle - windowHeight / 2;
-          const activeEnd = middle + windowHeight / 2;
+          // Calculate the distance from the scroll position to the middle of the section
+          const distance = Math.abs(scrollPosition - middle + windowHeight / 2);
 
-          if (scrollPosition >= activeStart && scrollPosition < activeEnd) {
-            currentActiveSection = index;
-            section.current?.classList.add('active-section');
-          } else {
-            section.current?.classList.remove('active-section');
-          }
+          // Normalize the distance to a value between 0 and 1
+          const normalizedDistance = Math.min(1, distance / (windowHeight / 2));
+
+          // Calculate the scale and opacity based on the normalized distance
+          const scale = 1 + (0.1 * (1 - normalizedDistance)); // Scale from 1 to 1.1
+          const opacity = 1 - (0.3 * normalizedDistance); // Opacity from 0.7 to 1
+
+          section.current.style.transform = `scale(${scale})`;
+          section.current.style.opacity = opacity.toString();
         }
       });
-
-      // Only update if the active section has changed
-      if (currentActiveSection !== prevActiveSection.current) {
-        sections.forEach((section, index) => {
-          if (section.current) {
-            if (index === currentActiveSection) {
-              section.current?.classList.add('active-section');
-              section.current?.classList.remove('inactive-section'); // Remove inactive class if it exists
-            } else {
-              section.current?.classList.remove('active-section');
-              section.current?.classList.add('inactive-section'); // Add inactive class
-            }
-          }
-        });
-
-        prevActiveSection.current = currentActiveSection; // Update the ref
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
