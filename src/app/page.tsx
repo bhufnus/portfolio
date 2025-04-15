@@ -23,6 +23,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
 
       let currentActiveSection: number | null = null;
 
@@ -30,8 +31,13 @@ export default function Home() {
         if (section.current) {
           const top = section.current.offsetTop;
           const height = section.current.offsetHeight;
+          const middle = top + height / 2; // Calculate the middle of the section
 
-          if (scrollPosition >= top && scrollPosition < top + height) {
+          // Define the active range based on the middle position
+          const activeStart = middle - windowHeight / 2;
+          const activeEnd = middle + windowHeight / 2;
+
+          if (scrollPosition >= activeStart && scrollPosition < activeEnd) {
             currentActiveSection = index;
             section.current?.classList.add('active-section');
           } else {
@@ -73,4 +79,3 @@ export default function Home() {
     </div>
   );
 }
-
