@@ -18,9 +18,13 @@ export default function Home() {
     useRef(null), // Bio
   ];
 
+  const prevActiveSection = useRef<number | null>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
+
+      let currentActiveSection: number | null = null;
 
       sections.forEach((section, index) => {
         if (section.current) {
@@ -28,14 +32,30 @@ export default function Home() {
           const height = section.current.offsetHeight;
 
           if (scrollPosition >= top && scrollPosition < top + height) {
-            // Section is in view, apply active class or any other visual indication
+            currentActiveSection = index;
             section.current?.classList.add('active-section');
           } else {
-            // Section is not in view, remove active class
             section.current?.classList.remove('active-section');
           }
         }
       });
+
+      // Only update if the active section has changed
+      if (currentActiveSection !== prevActiveSection.current) {
+        sections.forEach((section, index) => {
+          if (section.current) {
+            if (index === currentActiveSection) {
+              section.current?.classList.add('active-section');
+              section.current?.classList.remove('inactive-section'); // Remove inactive class if it exists
+            } else {
+              section.current?.classList.remove('active-section');
+              section.current?.classList.add('inactive-section'); // Add inactive class
+            }
+          }
+        });
+
+        prevActiveSection.current = currentActiveSection; // Update the ref
+      }
     };
 
     window.addEventListener('scroll', handleScroll);

@@ -88,3 +88,16 @@ body {
   }
 }
 
+/* Add zoom-in/out effect */
+section {
+  transition: transform 0.5s ease-in-out;
+}
+
+section.active-section {
+  transform: scale(1.1); /* Zoom in when active */
+}
+
+section.inactive-section {
+  transform: scale(0.9); /* Zoom out when inactive */
+  opacity: 0.7; /* Reduce opacity for inactive sections */
+}
