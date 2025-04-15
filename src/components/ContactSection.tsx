@@ -42,7 +42,7 @@ export const ContactSection = React.forwardRef<HTMLElement, {}>(({}, ref) => {
   };
 
   return (
-    <Section ref={ref} id="contact" title="Contact" className="min-h-screen flex items-center justify-center">
+    <Section ref={ref} id="contact" title="Contact" className="min-h-screen flex items-center justify-center" padding="8rem 2rem">
       <div className="container mx-auto px-5 py-20">
         <div className="max-w-md mx-auto bg-secondary rounded-lg p-8 shadow-lg">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

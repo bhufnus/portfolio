@@ -1,4 +1,3 @@
-
 'use client';
 
 import {useEffect, useRef} from 'react';
@@ -44,7 +43,7 @@ export default function Home() {
   }, [sections]);
 
   return (
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
+    <div>
       <HeroSection ref={sections[0]} id="hero" />
       <SkillsSection ref={sections[1]} id="skills" />
       <ResumeSection ref={sections[2]} id="resume" />

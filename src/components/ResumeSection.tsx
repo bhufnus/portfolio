@@ -4,7 +4,7 @@ import {Section} from '@/components/Section';
 
 export const ResumeSection = React.forwardRef<HTMLElement, {}>(({}, ref) => {
   return (
-    <Section ref={ref} id="resume" title="Resume" className="min-h-screen flex items-center justify-center">
+    <Section ref={ref} id="resume" title="Resume" className="min-h-screen flex items-center justify-center" padding="8rem 2rem">
       <div className="container mx-auto px-5 py-20">
         <div className="max-w-3xl mx-auto bg-secondary rounded-lg p-8 shadow-lg">
           <h2 className="text-2xl font-semibold mb-4">Work Experience</h2>
@@ -29,3 +29,4 @@ export const ResumeSection = React.forwardRef<HTMLElement, {}>(({}, ref) => {
 });
 
 ResumeSection.displayName = 'ResumeSection';
+

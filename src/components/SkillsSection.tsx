@@ -13,7 +13,7 @@ const skills = [
 
 export const SkillsSection = React.forwardRef<HTMLElement, {}>(({}, ref) => {
   return (
-    <Section ref={ref} id="skills" title="Skills" className="min-h-screen flex items-center justify-center">
+    <Section ref={ref} id="skills" title="Skills" className="min-h-screen flex items-center justify-center" padding="8rem 2rem">
       <div className="container mx-auto px-5 py-20">
         <div className="max-w-3xl mx-auto bg-secondary rounded-lg p-8 shadow-lg">
           <h2 className="text-2xl font-semibold mb-6">My Skills</h2>
@@ -37,3 +37,4 @@ export const SkillsSection = React.forwardRef<HTMLElement, {}>(({}, ref) => {
 });
 
 SkillsSection.displayName = 'SkillsSection';
+
