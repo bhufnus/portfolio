@@ -8,7 +8,7 @@ const skills = [
   {name: 'Node.js', value: 70},
   {name: 'JavaScript', value: 90},
   {name: 'TypeScript', value: 75},
-  {name: 'Tailwind CSS', value: 80},
+  {name: 'Doing ur mom', value: 80},
 ];
 
 export const SkillsSection = React.forwardRef<HTMLElement, {}>(({}, ref) => {

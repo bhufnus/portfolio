@@ -8,6 +8,7 @@ import {Textarea} from '@/components/ui/textarea';
 import {Button} from '@/components/ui/button';
 import {generateBio} from '@/ai/flows/generate-bio';
 import {useToast} from '@/hooks/use-toast';
+import { Icons } from '@/components/icons';
 
 export const BioSection = React.forwardRef<HTMLElement, {}>(({}, ref) => {
   const [desiredRoles, setDesiredRoles] = useState('');

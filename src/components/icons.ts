@@ -1,4 +1,6 @@
 import {ArrowRight, Check, ChevronsUpDown, Circle, Copy, Edit, ExternalLink, File, HelpCircle, Home, Loader2, Mail, MessageSquare, Moon, Plus, PlusCircle, Search, Server, Settings, Share2, Shield, Sun, Trash, User, X, Workflow} from 'lucide-react';
+import {SiJavascript, SiOpenjdk, SiNodedotjs, SiMongodb, SiExpress, SiReact, SiKubernetes, SiMysql, SiAmazon, SiDocker} from 'react-icons/si';
+
 
 const Icons = {
   arrowRight: ArrowRight,
@@ -28,6 +30,16 @@ const Icons = {
   spinner: Loader2,
   trash: Trash,
   user: User,
+  javascript: SiJavascript,
+  java: SiOpenjdk,
+  node: SiNodedotjs,
+  mongo: SiMongodb,
+  express: SiExpress,
+  react: SiReact,
+  kubernetes: SiKubernetes,
+  sql: SiMysql, // Corrected typo here
+  aws: SiAmazon, // Corrected name here
+  docker: SiDocker,
 };
 
 export {Icons};
